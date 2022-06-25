@@ -8,3 +8,13 @@ def inicio(request):
 
 def base(request):
     return render(request,"ProyectoViajesApp/base.html",{})
+
+
+def vuelos(request):
+    return render(request,"ProyectoViajesApp/vuelos.html",{})
+
+def hoteles(request):
+    return render(request,"ProyectoViajesApp/hoteles.html",{})
+
+def excursiones(request):
+    return render(request,"ProyectoViajesApp/excursiones.html",{})    
