@@ -4,3 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 def inicio(request):
      return HttpResponse("soy la pagina de inicio")
+
+
+def base(request):
+    return render(request,"ProyectoViajesApp/base.html",{})
