@@ -26,5 +26,5 @@ class Excursion(models.Model):
     nombre = models.CharField(max_length=30)
     ubicacion = models.CharField(max_length=60)
     descripcion = models.CharField(max_length=150)
-    duracion = models.DateTimeField()
+    duracion = models.IntegerField()
     precio = models.IntegerField()
