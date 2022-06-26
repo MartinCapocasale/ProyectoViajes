@@ -96,3 +96,23 @@ def buscar_ubicacion_hotel(request):
     else: 
         hoteles = []
         return render(request,"ProyectoViajesApp/buscar_ubicacion_hotel.html",{"hoteles":hoteles})
+
+def buscar_destino_vuelo(request):
+    if request.method == "POST":
+        vuelo = request.POST["destino"]
+        vuelos = Vuelo.objects.filter(destino__icontains=vuelo)
+        return render(request,"ProyectoViajesApp/buscar_destino_vuelo.html",{"vuelos":vuelos})
+
+    else: 
+        vuelos = []
+        return render(request,"ProyectoViajesApp/buscar_destino_vuelo.html",{"vuelos":vuelos})
+
+def buscar_nombre_excursion(request):
+    if request.method == "POST":
+        excursion = request.POST["nombre"]
+        excursiones = Excursion.objects.filter(nombre__icontains=excursion)
+        return render(request,"ProyectoViajesApp/buscar_nombre_excursion.html",{"excursiones":excursiones})
+
+    else: 
+        excursiones = []
+        return render(request,"ProyectoViajesApp/buscar_nombre_excursion.html",{"excursiones":excursiones})

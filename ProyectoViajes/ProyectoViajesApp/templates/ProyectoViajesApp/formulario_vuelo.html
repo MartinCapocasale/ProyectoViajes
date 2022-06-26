@@ -7,7 +7,7 @@ Vuelos - Viajes Coder
 {% block TipoDePagina %}Vuelos{% endblock %}
 {% block SloganPagina %}Elegí el mejor vuelo para tu próxima aventura{% endblock %}
 {% block DeBusqueda %}
-<a class="btn btn-primary" href="#!">Buscar Vuelos</a>
+<a class="btn btn-primary" href="{%url 'buscar_destino_vuelo'  %}">Buscar Vuelo</a>
 <a class="btn btn-primary" href="{%url 'crear_vuelo'  %}">Crear Nuevo Vuelo</a> 
    
 {% endblock %}</a>
@@ -17,7 +17,7 @@ Vuelos - Viajes Coder
 <form action="" method = "post">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="Submit" value = "Crear Vuelo">
+    <input class="btn btn-primary"  type="Submit" value = "Crear Vuelo"> 
 </form>
     
 {%endblock%}
