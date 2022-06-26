@@ -9,6 +9,7 @@ Excursiones - Viajes Coder
 {% block SloganPagina %}Elegí las mejores excursiones para disfrutar{% endblock %}
 {% block DeBusqueda %}
 <a class="btn btn-primary" href="#!">Buscar Excursiones</a>
+<a class="btn btn-primary" href="{%url 'crear_excursion'  %}">Crear Nueva Excursion</a> 
    
 {% endblock %}</a>
 
@@ -19,7 +20,6 @@ Excursiones - Viajes Coder
                 <div class="card-body"><p class="text-white m-0">Los ultimas Excursiones agregadas</p></div>
             </div>
             <!-- Content Row-->
-            <a href="{%url 'crear_excursion'  %}">+Crear Nueva Excursion</a>
             {%for excursion in excursiones%}
             <div class="row gx-4 gx-lg-5">
                 <div class="col-md-4 mb-5">

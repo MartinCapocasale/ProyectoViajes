@@ -8,6 +8,7 @@ Hoteles - Viajes Coder
 {% block SloganPagina %}Elegí el mejor hotel para tu próximo destino{% endblock %}
 {% block DeBusqueda %}
 <a class="btn btn-primary" href="#!">Buscar Hoteles</a>
+<a class="btn btn-primary" href="{%url 'crear_hotel'  %}">Crear Nuevo Hotel</a> 
    
 {% endblock %}</a>
 
@@ -17,7 +18,6 @@ Hoteles - Viajes Coder
         <div class="card-body"><p class="text-white m-0">Los ultimos Hoteles agregados</p></div>
     </div>
     <!-- Content Row-->
-        <a href="{%url 'crear_hotel'  %}">+Crear Nuevo Hotel</a>
             {%for hotel in hoteles%}
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-4 mb-5">
