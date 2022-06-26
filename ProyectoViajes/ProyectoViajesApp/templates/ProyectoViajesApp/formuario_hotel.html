@@ -1,0 +1,22 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Hoteles - Viajes Coder    
+{% endblock %}
+{% block TipoDePagina %}Hoteles{% endblock %}
+{% block SloganPagina %}Elegí el mejor hotel para tu próximo destino{% endblock %}
+{% block DeBusqueda %}
+<a class="btn btn-primary" href="#!">Buscar Hoteles</a>
+   
+{% endblock %}</a>
+
+{%block ContenidoPagina%}
+<h2>Crea un Hotel Nuevo</h2>
+<form action="" method = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="Submit" value = "Crear Hotel">
+</form>
+    
+{%endblock%}
