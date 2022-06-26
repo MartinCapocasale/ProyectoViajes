@@ -1,0 +1,22 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Vuelos - Viajes Coder    
+{% endblock %}
+{% block TipoDePagina %}Vuelos{% endblock %}
+{% block SloganPagina %}Elegí el mejor vuelo para tu próxima aventura{% endblock %}
+{% block DeBusqueda %}
+<a class="btn btn-primary" href="#!">Buscar Vuelos</a>
+   
+{% endblock %}</a>
+
+{%block ContenidoPagina%}
+<h2>Crea un Vuelo Nuevo</h2>
+<form action="" method = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="Submit" value = "Crear Vuelo">
+</form>
+    
+{%endblock%}

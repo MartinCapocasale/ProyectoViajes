@@ -1,0 +1,23 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Excursiones - Viajes Coder    
+{% endblock %}
+
+{% block TipoDePagina %}Excursiones{% endblock %}
+{% block SloganPagina %}Elegí las mejores excursiones para disfrutar{% endblock %}
+{% block DeBusqueda %}
+<a class="btn btn-primary" href="#!">Buscar Excursiones</a>
+   
+{% endblock %}</a>
+
+{%block ContenidoPagina%}
+<h2>Crea una Excursion Nueva</h2>
+<form action="" method = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="Submit" value = "Crear Excursion">
+</form>
+    
+{%endblock%}
