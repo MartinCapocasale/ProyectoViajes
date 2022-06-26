@@ -26,20 +26,23 @@ Hoteles - Busqueda
 
     <p>Resultado:</p>
     <ul> 
-        {%for hotel in hoteles%}
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <h5 class="card-title">Hotel en <h5><b>{{hotel.ubicacion}}</b></h5>
-                        <p class="card-text">"{{hotel.nombre}} Hotel"</p>
-                        <p class="card-text">Precio por noche: $<b>{{hotel.precio}}</b></p>
+        <!-- Content Row-->
+        <div class="container">
+            <div class="row">
+                {%for hotel in hoteles%}
+                    <div class="col-sm-4 mb-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Hotel en <h5><b>{{hotel.ubicacion}}</b></h5>
+                                <p class="card-text">{{hotel.nombre}} Hotel</p>
+                                <p class="card-text">Precio por noche: $<b>{{hotel.precio}}</b></p>
+                            </div>
+                            <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a></div>
+                        </div>
                     </div>
-                <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
-            </div>
-        </div>
-        {%endfor%}
+                {% endfor %}
+            </div> 
+        </div>   
     </ul>    
 {%endblock%}
