@@ -6,12 +6,15 @@ Hoteles - Viajes Coder
 {% endblock %}
 {% block TipoDePagina %}Hoteles{% endblock %}
 {% block SloganPagina %}Elegí el mejor hotel para tu próximo destino{% endblock %}
-<a class="btn btn-primary" href="#!">{% block DeBusqueda %}Buscar Hoteles{% endblock %}</a>
+{% block DeBusqueda %}
+<a class="btn btn-primary" href="#!">Buscar Hoteles</a>
+   
+{% endblock %}</a>
 
 {%block ContenidoPagina%}
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
+                <div class="card-body"><p class="text-white m-0">Los ultimos Hoteles agregados</p></div>
             </div>
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">

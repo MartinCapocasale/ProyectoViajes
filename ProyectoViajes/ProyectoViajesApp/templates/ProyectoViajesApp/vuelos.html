@@ -6,12 +6,14 @@ Vuelos - Viajes Coder
 {% endblock %}
 {% block TipoDePagina %}Vuelos{% endblock %}
 {% block SloganPagina %}Elegí el mejor vuelo para tu próxima aventura{% endblock %}
-<a class="btn btn-primary" href="#!">{% block DeBusqueda %}Buscar Vuelos{% endblock %}</a>
-
+{% block DeBusqueda %}
+<a class="btn btn-primary" href="#!">Buscar Vuelos</a>
+   
+{% endblock %}</a>
 {%block ContenidoPagina%}
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">Los ultimos vuelos agregados</p></div>
+                <div class="card-body"><p class="text-white m-0">Los ultimos Vuelos agregados</p></div>
             </div>
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">

@@ -37,7 +37,9 @@
                 <div class="col-lg-5">
                     <h1 class="font-weight-light">{% block TipoDePagina %}{% endblock %}</h1>
                     <p>{% block SloganPagina %}{% endblock %}</p>
-                    <a class="btn btn-primary" href="#!">{% block DeBusqueda %}{% endblock %}</a>
+                    {% block DeBusqueda %}
+
+                    {% endblock %}</a>
                 </div>
         </div>
         {%block ContenidoPagina %}
