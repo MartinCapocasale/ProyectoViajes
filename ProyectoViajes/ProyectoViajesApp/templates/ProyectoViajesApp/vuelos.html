@@ -11,27 +11,28 @@ Vuelos - Viajes Coder
 <a class="btn btn-primary" href="{%url 'crear_vuelo'  %}">Crear Nuevo Vuelo</a>   
    
 {% endblock %}</a>
+
 {%block ContenidoPagina%}
     <!-- Call to Action-->
     <div class="card text-white bg-secondary my-5 py-4 text-center">
         <div class="card-body"><p class="text-white m-0">Los ultimos Vuelos agregados</p></div>
     </div>
-
     <!-- Content Row-->
-    {%for vuelo in vuelos%}
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <!-- Product image-->
+    <div class="container">
+        <div class="row">
+            {%for vuelo in vuelos%}
+                <div class="col-sm-4 mb-3">
+                    <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <h5 class="card-title">Vuelo a <h5><b>{{vuelo.destino}}</b></h5>
-                        <p class="card-text">Saliendo desde: {{vuelo.origen}}</p>
-                        <p class="card-text">Precio Ida y Vuelta: $<b>{{vuelo.precio}}</b></p>
+                        <div class="card-body">
+                            <h5 class="card-title">Vuelo a <h5><b>{{vuelo.destino}}</b></h5>
+                            <p class="card-text">Saliendo desde: {{vuelo.origen}}</p>
+                            <p class="card-text">Precio Ida y Vuelta: $<b>{{vuelo.precio}}</b></p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a></div>
                     </div>
-                <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
-            </div>
-        </div>
-    {%endfor%}
- 
+                </div>
+            {% endfor %}
+        </div> 
+    </div>   
 {%endblock%}
