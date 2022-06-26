@@ -23,9 +23,11 @@ Vuelos - Viajes Coder
             <div class="col-md-4 mb-5">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h3 class="card-title">{{vuelo.destino}}</h3>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <h5 class="card-title">Vuelos a <h5><b>{{vuelo.destino}}</b></h5>
                         <p class="card-text">Saliendo desde: {{vuelo.origen}}</p>
-                        <p class="card-text">Precio Ida y Vuelta: <b>{{vuelo.precio}}</b></p>
+                        <p class="card-text">Precio Ida y Vuelta: $<b>{{vuelo.precio}}</b></p>
                     </div>
                 <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
             </div>
