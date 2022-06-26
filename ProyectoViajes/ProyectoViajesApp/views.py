@@ -45,7 +45,7 @@ def crear_hotel(request):
         formularioVacio = NuevoHotel()
         return render(request,"ProyectoViajesApp/formulario_hotel.html",{"form":formularioVacio})
 
-def crear_Vuelo(request):
+def crear_vuelo(request):
     #Post
     if request.method == "POST":
         formulario = NuevoVuelo(request.POST)
