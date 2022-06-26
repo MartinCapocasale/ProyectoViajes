@@ -86,3 +86,13 @@ def crear_excursion(request):
     else:
         formularioVacio = NuevoExcursion()
         return render(request,"ProyectoViajesApp/formulario_excursion.html",{"form":formularioVacio})
+
+def buscar_ubicacion_hotel(request):
+    if request.method == "POST":
+        hotel = request.POST["ubicacion"]
+        hoteles = Hotel.objects.filter(ubicacion__icontains=hotel)
+        return render(request,"ProyectoViajesApp/buscar_ubicacion_hotel.html",{"hoteles":hoteles})
+
+    else: 
+        hoteles = []
+        return render(request,"ProyectoViajesApp/buscar_ubicacion_hotel.html",{"hoteles":hoteles})

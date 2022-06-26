@@ -10,5 +10,6 @@ urlpatterns = [
     path('crear_hotel/',crear_hotel,name="crear_hotel"),
     path('crear_vuelo/',crear_vuelo,name="crear_vuelo"),
     path('crear_excursion/',crear_excursion,name="crear_excursion"),
+    path('buscar_ubicacion_hotel/', buscar_ubicacion_hotel, name="buscar_ubicacion_hotel"),
 
 ]
