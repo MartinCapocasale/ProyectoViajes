@@ -6,6 +6,7 @@ urlpatterns = [
     #path('base/', base),
     path('vuelos/',vuelos,name="vuelos"),
     path('hoteles/',hoteles,name="hoteles"),
-    path('excursiones/',excursiones,name="excursiones")
+    path('excursiones/',excursiones,name="excursiones"),
+    path('crear_hotel/',crear_hotel,name="crear_hotel"),
 
 ]
