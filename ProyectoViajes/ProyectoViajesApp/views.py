@@ -13,13 +13,13 @@ def base(request):
 
 
 def vuelos(request):
-    vuelos = Vuelo.object.all()
-    return render(request,"ProyectoViajesApp/vuelos.html",{"vuelos",vuelos})
+    vuelos = Vuelo.objects.all()
+    return render(request,"ProyectoViajesApp/vuelos.html",{"vuelos":vuelos})
 
 def hoteles(request):
-    hoteles = Hotel.object.all()
-    return render(request,"ProyectoViajesApp/hoteles.html",{"hoteles",hoteles})
+    hoteles = Hotel.objects.all()
+    return render(request,"ProyectoViajesApp/hoteles.html",{"hoteles":hoteles})
 
 def excursiones(request):
-    excursiones = Excursion.object.all()
-    return render(request,"ProyectoViajesApp/excursiones.html",{"excursiones",excursiones})    
+    excursiones = Excursion.objects.all()
+    return render(request,"ProyectoViajesApp/excursiones.html",{"excursiones":excursiones})    
