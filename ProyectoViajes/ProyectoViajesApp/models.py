@@ -10,7 +10,7 @@ class Vuelo(models.Model):
     destino = models.CharField(max_length=30)
     ida = models.DateTimeField()
     vuelta = models.DateTimeField()
-    precio = models.PositiveIntegerField()
+    precio = models.IntegerField()
 
 class Hotel(models.Model):
 
