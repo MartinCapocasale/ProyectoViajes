@@ -13,11 +13,11 @@ Hoteles - Crear
 {% endblock %}</a>
 
 {%block ContenidoPagina%}
-<h2>Crea un Hotel Nuevo</h2>
+<h2>Crea un Hotel Nuevo:</h2>
 <form action="" method = "post">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="Submit" value = "Crear Hotel">
+    <input class="btn btn-primary"  type="Submit" value = "Crear Hotel"> 
 </form>
     
 {%endblock%}

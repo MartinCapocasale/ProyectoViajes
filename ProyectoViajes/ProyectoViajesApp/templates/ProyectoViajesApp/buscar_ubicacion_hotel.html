@@ -19,14 +19,27 @@ Hoteles - Busqueda
             {% csrf_token %}
             <p> Destino: <input type="text" name="ubicacion" id=""> </p>
             {{form.as_p}}
-            <input type="Submit" value = "Buscar">
+            <input class="btn btn-primary"  type="Submit" value = "Buscar"> 
 
         </form>
     </p>
 
     <p>Resultado:</p>
-    <ul>{%for resultado in hoteles%}
-        <li>{{resultado.ubicacion}} - {{resultado.nombre}} - {{resultado.precio}}</li>
+    <ul> 
+        {%for hotel in hoteles%}
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <h5 class="card-title">Hotel en <h5><b>{{hotel.ubicacion}}</b></h5>
+                        <p class="card-text">"{{hotel.nombre}} Hotel"</p>
+                        <p class="card-text">Precio por noche: $<b>{{hotel.precio}}</b></p>
+                    </div>
+                <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+            </div>
+        </div>
         {%endfor%}
     </ul>    
 {%endblock%}
