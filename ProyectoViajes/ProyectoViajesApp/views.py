@@ -44,3 +44,45 @@ def crear_hotel(request):
     else:
         formularioVacio = NuevoHotel()
         return render(request,"ProyectoViajesApp/formulario_hotel.html",{"form":formularioVacio})
+
+def crear_Vuelo(request):
+    #Post
+    if request.method == "POST":
+        formulario = NuevoVuelo(request.POST)
+
+        if formulario.is_valid():
+            info_vuelo = formulario.cleaned_data
+
+            vuelo = Vuelo(id_vuelo = info_vuelo["id_vuelo"],origen = info_vuelo["origen"],destino = info_vuelo["destino"],ida = info_vuelo["ida"],vuelta = info_vuelo["vuelta"],precio = int(info_vuelo["precio"]))
+            
+            vuelo.save()#guardamos en la bdd
+            
+            return redirect("vuelos")#te redirecciono a la pagina de inicio
+        else:
+            return render(request,"ProyectoViajesApp/formulario_vuelo.html",{"form":formularioVacio})
+
+    #Get y otros
+    else:
+        formularioVacio = NuevoVuelo()
+        return render(request,"ProyectoViajesApp/formulario_vuelo.html",{"form":formularioVacio})
+
+def crear_excursion(request):
+    #Post
+    if request.method == "POST":
+        formulario = NuevoExcursion(request.POST)
+
+        if formulario.is_valid():
+            info_excursion = formulario.cleaned_data
+
+            excursion = Excursion(nombre = info_excursion["nombre"],ubicacion = info_excursion["ubicacion"],descripcion = info_excursion["descripcion"],duracion = info_excursion["duracion"],precio = int(info_excursion["precio"]))
+            
+            excursion.save()#guardamos en la bdd
+            
+            return redirect("excursiones")#te redirecciono a la pagina de inicio
+        else:
+            return render(request,"ProyectoViajesApp/formulario_excursion.html",{"form":formularioVacio})
+
+    #Get y otros
+    else:
+        formularioVacio = NuevoExcursion()
+        return render(request,"ProyectoViajesApp/formulario_excursion.html",{"form":formularioVacio})
