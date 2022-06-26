@@ -4,19 +4,11 @@
 {% block TituloPagina %}
 Vuelos - Viajes Coder    
 {% endblock %}
+{% block TipoDePagina %}Vuelos{% endblock %}
+{% block SloganPagina %}Elegí el mejor vuelo para tu próxima aventura{% endblock %}
+<a class="btn btn-primary" href="#!">{% block DeBusqueda %}Buscar Vuelos{% endblock %}</a>
 
 {%block ContenidoPagina%}
-        <!-- Page Content-->
-        <div class="container px-4 px-lg-5">
-            <!-- Heading Row-->
-            <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
-                <div class="col-lg-5">
-                    <h1 class="font-weight-light">Vuelos</h1>
-                    <p>Elegí el mejor vuelo para tu próxima aventura</p>
-                    <a class="btn btn-primary" href="#!">Buscar vuelos</a>
-                </div>
-            </div>
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
                 <div class="card-body"><p class="text-white m-0">Los ultimos vuelos agregados</p></div>
@@ -51,5 +43,4 @@ Vuelos - Viajes Coder
                     </div>
                 </div>
             </div>
-        </div>
 {%endblock%}
