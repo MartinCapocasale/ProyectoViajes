@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
+
 
 # Create your views here.
 def inicio(request):
@@ -11,10 +13,13 @@ def base(request):
 
 
 def vuelos(request):
-    return render(request,"ProyectoViajesApp/vuelos.html",{})
+    vuelos = Vuelo.object.all()
+    return render(request,"ProyectoViajesApp/vuelos.html",{"vuelos",vuelos})
 
 def hoteles(request):
-    return render(request,"ProyectoViajesApp/hoteles.html",{})
+    hoteles = Hotel.object.all()
+    return render(request,"ProyectoViajesApp/hoteles.html",{"hoteles",hoteles})
 
 def excursiones(request):
-    return render(request,"ProyectoViajesApp/excursiones.html",{})    
+    excursiones = Excursion.object.all()
+    return render(request,"ProyectoViajesApp/excursiones.html",{"excursiones",excursiones})    
