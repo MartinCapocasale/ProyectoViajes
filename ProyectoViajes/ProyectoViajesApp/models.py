@@ -1,4 +1,5 @@
 from django.db import models
+from tabnanny import verbose
 
 # Create your models here.
 
@@ -23,6 +24,9 @@ class Hotel(models.Model):
     precio = models.DecimalField(max_digits=8,decimal_places=0)
     imagen = models.URLField(blank=True,null=True)
 
+    class Meta:
+        verbose_name_plural = "Hoteles"
+
 class Excursion(models.Model):
 
     nombre = models.CharField(max_length=30)
@@ -31,3 +35,6 @@ class Excursion(models.Model):
     duracion = models.IntegerField()
     precio = models.DecimalField(max_digits=8,decimal_places=0)
     imagen = models.URLField(blank=True,null=True)
+
+    class Meta:
+        verbose_name_plural = "Excursiones"

@@ -5,7 +5,11 @@ from .forms import *
 
 # Create your views here.
 def inicio(request):
-     return render(request,"ProyectoViajesApp/index.html",{})
+    excursiones = Excursion.objects.all()
+    vuelos = Vuelo.objects.all()
+    hoteles = Hotel.objects.all()
+
+    return render(request,"ProyectoViajesApp/index.html",{"excursiones":excursiones,"vuelos":vuelos,"hoteles":hoteles})
 
 
 def base(request):
