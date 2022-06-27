@@ -1,11 +1,13 @@
 # ProyectoViajes
 Proyecto web de viajes con Python y Django
 
-Version del proyecto = 1.0
+-Version del proyecto = 1.0
 
-Python Version = 3.10.3
-django.VERSION = 4.0.5
-Bootstrap = 5.1.3 
+-Python Version = 3.10.3
+
+-django.VERSION = 4.0.5
+
+-Bootstrap = 5.1.3 
 
 El proyecto consiste en una web de viajes, teniendo inicialmente 3 modelos Vuelo, Hotel y Excursion, cada uno con su vista esto sumado a las 
 vistas de formulario para la insercion y las de busqueda para podder realizar una busqueda en cada uno de los modelos.
