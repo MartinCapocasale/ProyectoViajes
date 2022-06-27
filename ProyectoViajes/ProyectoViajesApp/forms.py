@@ -8,6 +8,7 @@ class NuevoHotel(forms.Form):
     desde = forms.DateTimeField(label= "Desde:")
     hasta = forms.DateTimeField(label= "Hasta:")
     precio = forms.DecimalField(label= "Precio:")
+    imagen = forms.URLField(label="Imagen:")
 
 class NuevoVuelo(forms.Form):
 
@@ -17,6 +18,7 @@ class NuevoVuelo(forms.Form):
     ida = forms.DateTimeField(label=  "Ida:")
     vuelta = forms.DateTimeField(label= "Vuelta:")
     precio = forms.DecimalField(label= "Precio:")
+    imagen = forms.URLField(label="Imagen:")
 
 class NuevoExcursion(forms.Form):
 
@@ -25,3 +27,4 @@ class NuevoExcursion(forms.Form):
     descripcion = forms.CharField(max_length=150,label = "Descripcion:")
     duracion = forms.IntegerField(label = "Duracion:")
     precio = forms.DecimalField(label = "Precio:")
+    imagen = forms.URLField(label="Imagen:")
