@@ -13,23 +13,47 @@ Inicio - Viajes Coder
 {%block SeparadorPagina %}Bienvenido al sitio N°1 en Vuelos, Alojamientos y Excursiones{% endblock %}
 
 {%block ContenidoPagina%}
-     <!-- Content Row-->
-     <div class="container">
-        <div class="row">
-            {%for excursion in excursiones%}
-                <div class="col-sm-4 mb-3">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{excursion.imagen}}" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title">Excursion en <h5><b>{{excursion.ubicacion}}</b></h5>
-                            <p class="card-text">{{excursion.nombre}}</p>
-                            <p class="card-text">{{excursion.descripcion}}</p>
-                            <p class="card-text">Precio: $<b>{{excursion.precio}}</b></p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a></div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div> 
+
+    <div class="container text-white bg-info my-5 py-4 text-center">
+        <h3 class="text-white m-0">Los últimos y exclusivos Vuelos, Hoteles y Excursiones</h3></div>
     </div>
+        <!-- Content Row-->
+        <div class="container">
+            <div class="row">
+                    <div class="col-sm-4 mb-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{vuelos.imagen}}" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Vuelo a <h5><b>{{vuelos.destino}}</b></h5>
+                                <p class="card-text">Saliendo desde: {{vuelos.origen}}</p>
+                                <p class="card-text">Precio Ida y Vuelta: $<b>{{Vuelos.precio}}</b></p>
+                            </div>
+                            <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{hoteles.imagen}}" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Hotel en <h5><b>{{hoteles.ubicacion}}</b></h5>
+                                <p class="card-text">{{hoteles.nombre}} Hotel</p>
+                                <p class="card-text">Precio por noche: $<b>{{hoteles.precio}}</b></p>
+                            </div>
+                            <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 mb-3">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{excursiones.imagen}}" alt="..." />
+                            <div class="card-body">
+                                <h5 class="card-title">Excursion en <h5><b>{{excursiones.ubicacion}}</b></h5>
+                                <p class="card-text">{{excursiones.nombre}}</p>
+                                <p class="card-text">{{excursiones.descripcion}}</p>
+                                <p class="card-text">Precio: $<b>{{excursiones.precio}}</b></p>
+                            </div>
+                            <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a></div>
+                        </div>
+                    </div>
+            </div> 
+        </div>  
 {%endblock%}

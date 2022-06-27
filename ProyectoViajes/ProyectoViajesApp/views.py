@@ -5,13 +5,12 @@ from .forms import *
 
 # Create your views here.
 def inicio(request):
-    excursiones = Excursion.objects.all()
-    vuelos = Vuelo.objects.all()
-    hoteles = Hotel.objects.all()
+    vuelos = Vuelo.objects.all().latest('id')
+    hoteles = Hotel.objects.all().latest('id')
+    excursiones = Excursion.objects.all().latest('id')
 
     return render(request,"ProyectoViajesApp/index.html",{"excursiones":excursiones,"vuelos":vuelos,"hoteles":hoteles})
-
-
+    
 def base(request):
     return render(request,"ProyectoViajesApp/base.html",{})
 
