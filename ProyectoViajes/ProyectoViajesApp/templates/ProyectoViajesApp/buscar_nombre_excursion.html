@@ -36,7 +36,7 @@ Excursiones - Viajes Coder
                 {%for excursion in excursiones%}
                     <div class="col-sm-4 mb-3">
                         <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="{{excursion.imagen}}" alt="..." />
                             <div class="card-body">
                                 <h5 class="card-title">Excursion en <h5><b>{{excursion.ubicacion}}</b></h5>
                                 <p class="card-text">{{excursion.nombre}}</p>
