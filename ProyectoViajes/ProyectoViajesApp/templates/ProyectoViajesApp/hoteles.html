@@ -23,7 +23,7 @@ Hoteles - Viajes Coder
             {%for hotel in hoteles%}
                 <div class="col-sm-4 mb-3">
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <img class="card-img-top" src="{{hotel.imagen}}" alt="..." />
                         <div class="card-body">
                             <h5 class="card-title">Hotel en <h5><b>{{hotel.ubicacion}}</b></h5>
                             <p class="card-text">{{hotel.nombre}} Hotel</p>
