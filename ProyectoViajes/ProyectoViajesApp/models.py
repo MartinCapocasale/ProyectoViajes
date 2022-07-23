@@ -38,3 +38,5 @@ class Excursion(models.Model):
 
     class Meta:
         verbose_name_plural = "Excursiones"
+    #def __str__(self) -> str:
+    #    return f"Excursion:{self.nombre} en {self.ubicacion} con precio {self.precio}"
