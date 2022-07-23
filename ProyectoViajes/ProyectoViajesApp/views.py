@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import *
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login,logout, authenticate 
 
 # Create your views here.
@@ -30,11 +30,36 @@ def login_request(request):
                 return redirect("login")
         else:
             return redirect("login")
-            
+
     form = AuthenticationForm()
         
     return render(request,"ProyectoViajesApp/login.html",{"form":form})
+
+def register_request(request):
+    if request.method == "POST":
+        form = UserRegisterForm(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            form.save()
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                login(request,user)
+                return redirect("inicio")
+            else:
+                return redirect("login")
+        return render(request,"ProyectoViajesApp/register.html",{"form":form})
+            
+    form = UserRegisterForm()
+        
+    return render(request,"ProyectoViajesApp/register.html",{"form":form})
     
+def logout_request(request):
+    logout(request)
+    return redirect("inicio")
+
 def base(request):
     return render(request,"ProyectoViajesApp/base.html",{})
 

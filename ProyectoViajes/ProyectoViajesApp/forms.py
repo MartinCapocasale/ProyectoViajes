@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.models import User
 
 class NuevoHotel(forms.Form):
 
@@ -28,3 +30,14 @@ class NuevoExcursion(forms.Form):
     duracion = forms.IntegerField(label = "Duracion:")
     precio = forms.DecimalField(label = "Precio:")
     imagen = forms.URLField(label="Imagen URL:")
+
+class UserRegisterForm(UserCreationForm):
+
+    email = forms.EmailField(label="Email:")
+    passwod1 = forms.CharField(label = "Contraseña:", widget=forms.PasswordInput)
+    passwod2 = forms.CharField(label = "Repetir la Contraseña:", widget=forms.PasswordInput)
+    
+    class Meta:
+        model = User
+        fields = ['username','email','password1','password2']
+        help_texts = {k:"" for k in fields}

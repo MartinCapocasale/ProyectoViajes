@@ -1,0 +1,26 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Register - Viajes Coder    
+{% endblock %}
+{% block ImagenPortada %}
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'imagenes/inicio.jpeg'%}" alt="..." /></div>
+{% endblock %}
+{% block TipoDePagina %}Registro{% endblock %}
+{% block SloganPagina %}Registrate con un usuario y contraseña{% endblock %}
+
+{%block SeparadorPagina %}Página de registro{% endblock %}
+
+{%block ContenidoPagina%}
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <h1>Registrate</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</section>    
+{%endblock%}
