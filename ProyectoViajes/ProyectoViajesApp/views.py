@@ -1,7 +1,10 @@
+from telnetlib import LOGOUT
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from .forms import *
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login,logout, authenticate 
 
 # Create your views here.
 def inicio(request):
@@ -10,6 +13,27 @@ def inicio(request):
     excursiones = Excursion.objects.all().latest('id')
 
     return render(request,"ProyectoViajesApp/index.html",{"excursiones":excursiones,"vuelos":vuelos,"hoteles":hoteles})
+
+def login_request(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request,data=request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+
+            if user is not None:
+                login(request,user)
+                return redirect("inicio")
+            else:
+                return redirect("login")
+        else:
+            return redirect("login")
+            
+    form = AuthenticationForm()
+        
+    return render(request,"ProyectoViajesApp/login.html",{"form":form})
     
 def base(request):
     return render(request,"ProyectoViajesApp/base.html",{})
