@@ -34,10 +34,10 @@ class NuevoExcursion(forms.Form):
 class UserRegisterForm(UserCreationForm):
 
     email = forms.EmailField(label="Email:")
-    passwod1 = forms.CharField(label = "Contraseña:", widget=forms.PasswordInput)
-    passwod2 = forms.CharField(label = "Repetir la Contraseña:", widget=forms.PasswordInput)
+    #passwod1 = forms.CharField(label = "Contraseña:", widget=forms.PasswordInput)
+    #passwod2 = forms.CharField(label = "Repetir la Contraseña:", widget=forms.PasswordInput)
     
     class Meta:
         model = User
-        fields = ['username','email','password1','password2']
+        fields = ['username','email']
         help_texts = {k:"" for k in fields}
