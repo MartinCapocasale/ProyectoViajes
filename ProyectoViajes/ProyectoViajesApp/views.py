@@ -5,6 +5,7 @@ from .models import *
 from .forms import *
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login,logout, authenticate 
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def inicio(request):
@@ -72,6 +73,7 @@ def hoteles(request):
     hoteles = Hotel.objects.all()
     return render(request,"ProyectoViajesApp/hoteles.html",{"hoteles":hoteles})
 
+#@login_required
 def excursiones(request):
     excursiones = Excursion.objects.all()
     return render(request,"ProyectoViajesApp/excursiones.html",{"excursiones":excursiones})
