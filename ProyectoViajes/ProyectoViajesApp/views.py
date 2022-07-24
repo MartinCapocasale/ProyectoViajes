@@ -68,8 +68,7 @@ def logout_request(request):
     logout(request)
     return redirect("inicio")
     
-
-login_required    
+@login_required    
 def editar_perfil(request):
 
     user = request.user
@@ -89,6 +88,7 @@ def editar_perfil(request):
 
     return render(request,"ProyectoViajesApp/editar_perfil.html",{"form":form})
 
+@login_required    
 def agregar_avatar(request):
     
     if request.method == "POST":
@@ -105,10 +105,8 @@ def agregar_avatar(request):
         form = AvatarForm()
     return render(request,"ProyectoViajesApp/agregar_avatar.html",{"form":form})
 
-
 def base(request):
     return render(request,"ProyectoViajesApp/base.html",{})
-
 
 def vuelos(request):
     vuelos = Vuelo.objects.all()
@@ -119,12 +117,12 @@ def hoteles(request):
     aplicar_avatar(request)
     return render(request,"ProyectoViajesApp/hoteles.html",{"hoteles":hoteles})
 
-
 def excursiones(request):
     excursiones = Excursion.objects.all()
     aplicar_avatar(request)
     return render(request,"ProyectoViajesApp/excursiones.html",{"excursiones":excursiones})
 
+@login_required 
 def crear_hotel(request):
     #Post
     if request.method == "POST":
@@ -146,6 +144,44 @@ def crear_hotel(request):
         formularioVacio = NuevoHotel()
         return render(request,"ProyectoViajesApp/formulario_hotel.html",{"form":formularioVacio})
 
+@login_required 
+def eliminar_hotel(request,hotel_id):
+
+    hotel = Hotel.objects.get(id=hotel_id)
+    hotel.delete()
+
+    return redirect("hoteles")
+
+@login_required 
+def editar_hotel(request,hotel_id):
+
+    hotel = Hotel.objects.get(id=hotel_id)
+
+    if request.method == "POST":
+        
+        formulario = NuevoHotel(request.POST)
+
+        if formulario.is_valid():
+            
+            info_hotel = formulario.cleaned_data
+            
+            hotel.nombre = info_hotel["nombre"]
+            hotel.ubicacion = info_hotel["ubicacion"]
+            hotel.descripcion = info_hotel["descripcion"]
+            hotel.desde = info_hotel["desde"]
+            hotel.hasta = info_hotel["hasta"]
+            hotel.precio = info_hotel["precio"]
+            hotel.imagen = info_hotel["imagen"]
+            hotel.save()
+
+            return redirect("hoteles")
+
+    # get
+    formulario = NuevoHotel(initial={"nombre":hotel.nombre, "ubicacion":hotel.ubicacion, "descripcion": hotel.descripcion,"desde":hotel.desde, "hasta":hotel.hasta, "precio": hotel.precio, "imagen": hotel.imagen})
+    
+    return render(request,"ProyectoViajesApp/editar_hotel.html",{"form":formulario})
+
+@login_required 
 def crear_vuelo(request):
     #Post
     if request.method == "POST":
@@ -167,6 +203,44 @@ def crear_vuelo(request):
         formularioVacio = NuevoVuelo()
         return render(request,"ProyectoViajesApp/formulario_vuelo.html",{"form":formularioVacio})
 
+@login_required 
+def eliminar_vuelo(request,vuelo_id):
+
+    vuelo = Vuelo.objects.get(id=vuelo_id)
+    vuelo.delete()
+
+    return redirect("vuelos")
+
+@login_required 
+def editar_vuelo(request,vuelo_id):
+
+    vuelo = Vuelo.objects.get(id=vuelo_id)
+
+    if request.method == "POST":
+        
+        formulario = NuevoVuelo(request.POST)
+
+        if formulario.is_valid():
+            
+            info_vuelo = formulario.cleaned_data
+            
+            vuelo.id_vuelo = info_vuelo["id_vuelo"]
+            vuelo.origen = info_vuelo["origen"]
+            vuelo.destino = info_vuelo["destino"]
+            vuelo.ida = info_vuelo["ida"]
+            vuelo.vuelta = info_vuelo["vuelta"]
+            vuelo.precio = info_vuelo["precio"]
+            vuelo.imagen = info_vuelo["imagen"]
+            vuelo.save()
+
+            return redirect("vuelos")
+
+    # get
+    formulario = NuevoVuelo(initial={"id_vuelo":vuelo.id_vuelo, "origen":vuelo.origen, "destino": vuelo.destino,"ida":vuelo.ida, "vuelta":vuelo.vuelta, "precio": vuelo.precio,"imagen": vuelo.imagen})
+    
+    return render(request,"ProyectoViajesApp/editar_vuelo.html",{"form":formulario})
+
+@login_required 
 def crear_excursion(request):
     #Post
     if request.method == "POST":
@@ -187,6 +261,41 @@ def crear_excursion(request):
     else:
         formularioVacio = NuevoExcursion()
         return render(request,"ProyectoViajesApp/formulario_excursion.html",{"form":formularioVacio})
+@login_required 
+def eliminar_excursion(request,excursion_id):
+
+    excursion = Excursion.objects.get(id=excursion_id)
+    excursion.delete()
+
+    return redirect("excursiones")
+
+@login_required 
+def editar_excursion(request,excursion_id):
+
+    excursion = Excursion.objects.get(id=excursion_id)
+
+    if request.method == "POST":
+        
+        formulario = NuevoExcursion(request.POST)
+
+        if formulario.is_valid():
+            
+            info_excursion = formulario.cleaned_data
+            
+            excursion.nombre = info_excursion["nombre"]
+            excursion.ubicacion = info_excursion["ubicacion"]
+            excursion.descripcion = info_excursion["descripcion"]
+            excursion.duracion = info_excursion["duracion"]
+            excursion.precio = info_excursion["precio"]
+            excursion.imagen = info_excursion["imagen"]
+            excursion.save()
+
+            return redirect("excursiones")
+
+    # get
+    formulario = NuevoExcursion(initial={"nombre":excursion.nombre, "ubicacion":excursion.ubicacion, "descripcion": excursion.descripcion,"duracion":excursion.duracion, "precio":excursion.precio, "imagen": excursion.imagen})
+    
+    return render(request,"ProyectoViajesApp/editar_excursion.html",{"form":formulario})
 
 def buscar_ubicacion_hotel(request):
     if request.method == "POST":
@@ -217,7 +326,6 @@ def buscar_nombre_excursion(request):
     else: 
         excursiones = []
         return render(request,"ProyectoViajesApp/buscar_nombre_excursion.html",{"excursiones":excursiones})
-
 
 def aplicar_avatar(request):
     if request.user.is_authenticated:

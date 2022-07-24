@@ -13,7 +13,8 @@ Vuelos - Viajes Coder
 {% block SloganPagina %}Elegí el mejor vuelo para tu próxima aventura{% endblock %}
 {% block DeBusqueda %}
 <a class="btn btn-primary" href="{%url 'buscar_destino_vuelo'  %}">Buscar Vuelo</a>
-<a class="btn btn-primary" href="{%url 'crear_vuelo'  %}">Crear Nuevo Vuelo</a>   
+<a class="btn btn-primary" href="{%url 'crear_vuelo'  %}">Crear Nuevo Vuelo</a>
+
    
 {% endblock %}</a>
 {%block SeparadorPagina %}Los ultimos Vuelos agregados{% endblock %}
@@ -30,7 +31,12 @@ Vuelos - Viajes Coder
                             <p class="card-text">Saliendo desde: {{vuelo.origen}}</p>
                             <p class="card-text">Precio Ida y Vuelta: $<b>{{vuelo.precio}}</b></p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a>
+                            <td>
+                                <a href="{% url 'editar_vuelo' vuelo.id %}" class="btn btn-primary btn-sm"> Editar</a>
+                                <a href="{% url 'eliminar_vuelo' vuelo.id %}" class="btn btn-primary btn-sm"> Eliminar</a>
+                            </td>
+                        </div>
                     </div>
                 </div>
             {% endfor %}

@@ -17,14 +17,14 @@ Vuelos - Viajes Coder
 <a class="btn btn-primary" href="{%url 'crear_vuelo'  %}">Crear Nuevo Vuelo</a>
    
 {% endblock %}</a>
-{%block SeparadorPagina %}Creacion de Vuelos{% endblock %}
+{%block SeparadorPagina %}Edición de Vuelos{% endblock %}
 {%block ContenidoPagina%}
 
-<h2>Crea un Vuelo Nuevo:</h2>
+<h2>Edita el Vuelo Seleccionado:</h2>
 <form action="" method = "post">
     {% csrf_token %}
     {{form.as_p}}
-    <input class="btn btn-primary"  type="Submit" value = "Crear Vuelo"> 
+    <input class="btn btn-primary"  type="Submit" value = "Editar Vuelo"> 
 </form>
     
 {%endblock%}

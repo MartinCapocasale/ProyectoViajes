@@ -31,7 +31,12 @@ Excursiones - Viajes Coder
                             <p class="card-text">{{excursion.descripcion}}</p>
                             <p class="card-text">Precio: $<b>{{excursion.precio}}</b></p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a>
+                            <td>
+                                <a href="{% url 'editar_excursion' excursion.id %}" class="btn btn-primary btn-sm"> Editar</a>
+                                <a href="{% url 'eliminar_excursion' excursion.id %}" class="btn btn-primary btn-sm"> Eliminar</a>
+                            </td>
+                        </div>
                     </div>
                 </div>
             {% endfor %}

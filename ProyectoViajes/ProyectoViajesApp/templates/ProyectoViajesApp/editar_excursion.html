@@ -1,0 +1,30 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Excursiones - Viajes Coder    
+{% endblock %}
+
+{% block ImagenPortada %}
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'imagenes/excursiones.jpg'%}" alt="..." /></div>
+{% endblock %}
+
+
+{% block TipoDePagina %}Excursiones{% endblock %}
+{% block SloganPagina %}Elegí la mejor Excursion para tu próxima aventura{% endblock %}
+{% block DeBusqueda %}
+<a class="btn btn-primary" href="{%url 'buscar_nombre_excursion'  %}">Buscar Excursion</a>
+<a class="btn btn-primary" href="{%url 'crear_excursion'  %}">Crear Nueva Excursion</a>
+   
+{% endblock %}</a>
+{%block SeparadorPagina %}Edición de Excursiones{% endblock %}
+{%block ContenidoPagina%}
+
+<h2>Edita la Excursion Seleccionada:</h2>
+<form action="" method = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary"  type="Submit" value = "Editar Excursion"> 
+</form>
+    
+{%endblock%}

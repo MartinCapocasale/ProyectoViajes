@@ -1,0 +1,30 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Hoteles - Viajes Coder    
+{% endblock %}
+
+{% block ImagenPortada %}
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'imagenes/hoteles.jpg'%}" alt="..." /></div>
+{% endblock %}
+
+
+{% block TipoDePagina %}Hoteles{% endblock %}
+{% block SloganPagina %}Elegí el mejor hotel para tu próxima aventura{% endblock %}
+{% block DeBusqueda %}
+<a class="btn btn-primary" href="{%url 'buscar_ubicacion_hotel'  %}">Buscar Hotel</a>
+<a class="btn btn-primary" href="{%url 'crear_hotel'  %}">Crear nuevo Hotel</a>
+   
+{% endblock %}</a>
+{%block SeparadorPagina %}Edición de Hoteles{% endblock %}
+{%block ContenidoPagina%}
+
+<h2>Edita el hotel Seleccionado:</h2>
+<form action="" method = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary"  type="Submit" value = "Editar hotel"> 
+</form>
+    
+{%endblock%}
