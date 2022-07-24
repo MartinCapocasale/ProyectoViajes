@@ -1,0 +1,29 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Editar Perfil - Viajes Coder    
+{% endblock %}
+{% block ImagenPortada %}
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'imagenes/inicio.jpeg'%}" alt="..." /></div>
+{% endblock %}
+{% block TipoDePagina %}Editar Perfil{% endblock %}
+{% block SloganPagina %}Edita tu perfil{% endblock %}
+
+{%block SeparadorPagina %}Página de edicion{% endblock %}
+
+{%block ContenidoPagina%}
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <h1>Editar Perfil</h1>
+        <br>
+        <h5>Estas editando al usuario "{{user.username}}":</h5>
+        <br>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+</section>    
+{%endblock%}
