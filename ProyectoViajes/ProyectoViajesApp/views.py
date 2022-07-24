@@ -68,6 +68,7 @@ def logout_request(request):
     logout(request)
     return redirect("inicio")
     
+
 @login_required    
 def editar_perfil(request):
 
@@ -105,8 +106,10 @@ def agregar_avatar(request):
         form = AvatarForm()
     return render(request,"ProyectoViajesApp/agregar_avatar.html",{"form":form})
 
+
 def base(request):
     return render(request,"ProyectoViajesApp/base.html",{})
+
 
 def vuelos(request):
     vuelos = Vuelo.objects.all()
@@ -116,6 +119,7 @@ def hoteles(request):
     hoteles = Hotel.objects.all()
     aplicar_avatar(request)
     return render(request,"ProyectoViajesApp/hoteles.html",{"hoteles":hoteles})
+
 
 def excursiones(request):
     excursiones = Excursion.objects.all()
@@ -148,9 +152,11 @@ def crear_hotel(request):
 def eliminar_hotel(request,hotel_id):
 
     hotel = Hotel.objects.get(id=hotel_id)
-    hotel.delete()
+    if request.method == "POST":
+        hotel.delete()
+        return redirect("hoteles")
 
-    return redirect("hoteles")
+    return render(request,"ProyectoViajesApp/eliminar_hotel.html",{"hotel":hotel})
 
 @login_required 
 def editar_hotel(request,hotel_id):
@@ -207,9 +213,11 @@ def crear_vuelo(request):
 def eliminar_vuelo(request,vuelo_id):
 
     vuelo = Vuelo.objects.get(id=vuelo_id)
-    vuelo.delete()
+    if request.method == "POST":
+        vuelo.delete()
+        return redirect("vuelos")
 
-    return redirect("vuelos")
+    return render(request,"ProyectoViajesApp/eliminar_vuelo.html",{"vuelo":vuelo})
 
 @login_required 
 def editar_vuelo(request,vuelo_id):
@@ -265,9 +273,11 @@ def crear_excursion(request):
 def eliminar_excursion(request,excursion_id):
 
     excursion = Excursion.objects.get(id=excursion_id)
-    excursion.delete()
+    if request.method == "POST":
+        excursion.delete()
+        return redirect("excursiones")
 
-    return redirect("excursiones")
+    return render(request,"ProyectoViajesApp/eliminar_excursion.html",{"excursion":excursion})
 
 @login_required 
 def editar_excursion(request,excursion_id):
