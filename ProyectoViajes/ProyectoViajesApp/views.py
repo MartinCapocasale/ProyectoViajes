@@ -13,6 +13,13 @@ def inicio(request):
     hoteles = Hotel.objects.all().latest('id')
     excursiones = Excursion.objects.all().latest('id')
 
+    if request.user.is_authenticated:
+        try:
+            avatar = Avatar.objects.get(usuario=request.user)
+            url = avatar.imagen.url
+        except:
+            url = "/media/avatar/perfil_default.png"   
+        return render(request,"ProyectoViajesApp/index.html",{"excursiones":excursiones,"vuelos":vuelos,"hoteles":hoteles,"url":url})
     return render(request,"ProyectoViajesApp/index.html",{"excursiones":excursiones,"vuelos":vuelos,"hoteles":hoteles})
 
 def login_request(request):
@@ -82,6 +89,21 @@ def editar_perfil(request):
 
     return render(request,"ProyectoViajesApp/editar_perfil.html",{"form":form})
 
+def agregar_avatar(request):
+    
+    if request.method == "POST":
+        form = AvatarForm(request.POST, request.FILES)
+        if form.is_valid():
+            user = request.user
+            avatar =Avatar(usuario=user, imagen=form.cleaned_data["imagen"])
+            """ avatar = Avatar()
+            avatar.usuario = request.user
+            avatar.imagen = form.cleaned_data['imagen']"""
+            avatar.save()
+            return redirect("inicio")
+    else:
+        form = AvatarForm()
+    return render(request,"ProyectoViajesApp/agregar_avatar.html",{"form":form})
 
 
 def base(request):
@@ -94,11 +116,13 @@ def vuelos(request):
 
 def hoteles(request):
     hoteles = Hotel.objects.all()
+    aplicar_avatar(request)
     return render(request,"ProyectoViajesApp/hoteles.html",{"hoteles":hoteles})
 
 
 def excursiones(request):
     excursiones = Excursion.objects.all()
+    aplicar_avatar(request)
     return render(request,"ProyectoViajesApp/excursiones.html",{"excursiones":excursiones})
 
 def crear_hotel(request):
@@ -193,3 +217,13 @@ def buscar_nombre_excursion(request):
     else: 
         excursiones = []
         return render(request,"ProyectoViajesApp/buscar_nombre_excursion.html",{"excursiones":excursiones})
+
+
+def aplicar_avatar(request):
+    if request.user.is_authenticated:
+        try:
+            avatar = Avatar.objects.get(usuario=request.user)
+            url = avatar.imagen.url
+        except:
+            url = "/media/avatar/perfil_default.png"   
+        return render(request,"ProyectoViajesApp/index.html",{"excursiones":excursiones,"vuelos":vuelos,"hoteles":hoteles,"url":url})

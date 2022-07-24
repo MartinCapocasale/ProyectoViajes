@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
+from .models import Avatar
 
 class NuevoHotel(forms.Form):
 
@@ -32,7 +33,8 @@ class NuevoExcursion(forms.Form):
     imagen = forms.URLField(label="Imagen URL:")
 
 class UserRegisterForm(UserCreationForm):
- 
+
+    #foto = forms.ImageField(required=False)
     email = forms.EmailField(label="Email:")
     password1: forms.CharField(label="Contraseña:",widget=forms.PasswordInput)
     password2: forms.CharField(label="Confirmar Contraseña:",widget=forms.PasswordInput)
@@ -46,6 +48,7 @@ class UserRegisterForm(UserCreationForm):
 
 class UserEditForm(UserCreationForm):
 
+    #foto = forms.ImageField(required=False)
     email = forms.EmailField(label="Email:")
     password1: forms.CharField(label="Contraseña:",widget=forms.PasswordInput)
     password2: forms.CharField(label="Confirmar Contraseña:",widget=forms.PasswordInput)
@@ -55,4 +58,12 @@ class UserEditForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username','email','password1','password2','first_name','last_name']
+        #help_texts = {k:"" for k in fields}
+
+class AvatarForm(forms.Form):
+    imagen = forms.ImageField(label="Imagen")
+
+    class Meta:
+        model = Avatar
+        fields = ['imagen']
         #help_texts = {k:"" for k in fields}
