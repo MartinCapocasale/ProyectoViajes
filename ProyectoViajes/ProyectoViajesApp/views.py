@@ -78,6 +78,7 @@ def editar_perfil(request):
         form =  UserEditForm(request.POST)
         if form.is_valid():
             info = form.cleaned_data
+            user.username = info["username"]
             user.email = info["email"]
             user.first_name = info["first_name"]
             user.last_name = info["last_name"]
@@ -85,7 +86,7 @@ def editar_perfil(request):
 
             return redirect("inicio")
     else:
-        form = UserEditForm(initial={"email":user.email,"first_name":user.first_name,"last_name":user.last_name})
+        form = UserEditForm(initial={"username":user.username, "email":user.email,"first_name":user.first_name,"last_name":user.last_name})
 
     return render(request,"ProyectoViajesApp/editar_perfil.html",{"form":form})
 
@@ -104,6 +105,10 @@ def agregar_avatar(request):
         form = AvatarForm()
     return render(request,"ProyectoViajesApp/agregar_avatar.html",{"form":form})
 
+@login_required
+def ver_perfil(request):
+    perfil = User.objects.all()
+    return render(request,"ProyectoViajesApp/ver_perfil.html",{"perfil":perfil})
 
 def base(request):
     return render(request,"ProyectoViajesApp/base.html",{})

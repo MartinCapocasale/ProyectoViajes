@@ -49,6 +49,7 @@ class UserRegisterForm(UserCreationForm):
 class UserEditForm(UserCreationForm):
 
     #foto = forms.ImageField(required=False)
+    username = forms.CharField(label="Username:")
     email = forms.EmailField(label="Email:")
     password1: forms.CharField(label="Contraseña:",widget=forms.PasswordInput)
     password2: forms.CharField(label="Confirmar Contraseña:",widget=forms.PasswordInput)
