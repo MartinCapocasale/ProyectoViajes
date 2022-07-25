@@ -10,6 +10,7 @@ urlpatterns = [
     path ('agregar_avatar',agregar_avatar,name="agregar_avatar"),
     #path('base/', base),
 
+    path('acerca_de/',acerca_de,name="acerca_de"),
     path('vuelos/',vuelos,name="vuelos"),
     path('hoteles/',hoteles,name="hoteles"),
     path('excursiones/',excursiones,name="excursiones"),

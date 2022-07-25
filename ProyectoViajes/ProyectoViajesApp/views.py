@@ -107,6 +107,9 @@ def agregar_avatar(request):
 def base(request):
     return render(request,"ProyectoViajesApp/base.html",{})
 
+def acerca_de(request):
+    acerca = Acerca_de.objects.all()
+    return render(request,"ProyectoViajesApp/acerca_de.html",{"acerca":acerca})
 
 def vuelos(request):
     vuelos = Vuelo.objects.all()

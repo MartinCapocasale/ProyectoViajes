@@ -1,0 +1,45 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Acerca de - Viajes Coder    
+{% endblock %}
+
+{% block ImagenPortada %}
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'imagenes/acerca.jpg'%}" alt="..." /></div>
+{% endblock %}
+
+{% block TipoDePagina %}Acerca de Nosotros{% endblock %}
+{% block SloganPagina %}
+Creemos que viajar nos transforma, porque nos permite encontrar la mejor versión de nosotros mismos.
+Por eso, ofrecemos el mejor servicio de atención personalizada para acompañarte ANTES, DURANTE y DESPUÉS de tu viaje
+{% endblock %}
+{% block DeBusqueda %}
+  
+{% endblock %}</a>
+{%block SeparadorPagina %}Somos líderes en atención{% endblock %}
+{%block ContenidoPagina%}
+    <!-- Content Row-->
+    <div class="container">
+        <div class="row">
+            {%for vuelo in vuelos%}
+                <div class="col-sm-4 mb-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{vuelo.imagen}}" alt="..." />
+                        <div class="card-body">
+                            <h5 class="card-title">Vuelo a <h5><b>{{vuelo.destino}}</b></h5>
+                            <p class="card-text">Saliendo desde: {{vuelo.origen}}</p>
+                            <p class="card-text">Precio Ida y Vuelta: $<b>{{vuelo.precio}}</b></p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a>
+                            <td>
+                                <a href="{% url 'editar_vuelo' vuelo.id %}" class="btn btn-primary btn-sm"> Editar</a>
+                                <a href="{% url 'eliminar_vuelo' vuelo.id %}" class="btn btn-primary btn-sm"> Eliminar</a>
+                            </td>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div> 
+    </div>   
+{%endblock%}
