@@ -31,7 +31,7 @@ Vuelos - Viajes Coder
                             <p class="card-text">Saliendo desde: {{vuelo.origen}}</p>
                             <p class="card-text">Precio Ida y Vuelta: $<b>{{vuelo.precio}}</b></p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a>
+                        <div class="card-footer"><a href="{% url 'mas_info_vuelo' vuelo.id %}" class="btn btn-primary btn-sm">Mas informacion</a>
                             <td>
                                 <a href="{% url 'editar_vuelo' vuelo.id %}" class="btn btn-primary btn-sm"> Editar</a>
                                 <a href="{% url 'eliminar_vuelo' vuelo.id %}" class="btn btn-primary btn-sm"> Eliminar</a>

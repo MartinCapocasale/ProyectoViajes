@@ -31,5 +31,7 @@ urlpatterns = [
     path('editar_hotel/<hotel_id>', editar_hotel, name="editar_hotel"),
     path('editar_excursion/<excursion_id>', editar_excursion, name="editar_excursion"),
 
+    path('mas_info_vuelo/<vuelo_id>', mas_info_vuelo, name="mas_info_vuelo"),
     path('mas_info_hotel/<hotel_id>', mas_info_hotel, name="mas_info_hotel"),
+    path('mas_info_excursion/<excursion_id>', mas_info_excursion, name="mas_info_excursion"),
 ]

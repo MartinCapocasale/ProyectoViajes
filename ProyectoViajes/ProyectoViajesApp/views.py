@@ -127,6 +127,14 @@ def mas_info_hotel(request,hotel_id):
     hotel = Hotel.objects.get(id=hotel_id)
     return render(request,"ProyectoViajesApp/mas_info_hotel.html",{"hotel":hotel})
 
+def mas_info_vuelo(request,vuelo_id):
+    vuelo = Vuelo.objects.get(id=vuelo_id)
+    return render(request,"ProyectoViajesApp/mas_info_vuelo.html",{"vuelo":vuelo})
+
+def mas_info_excursion(request,excursion_id):
+    excursion = Excursion.objects.get(id=excursion_id)
+    return render(request,"ProyectoViajesApp/mas_info_excursion.html",{"excursion":excursion})
+
 @login_required 
 def crear_hotel(request):
     #Post

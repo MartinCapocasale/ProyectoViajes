@@ -2,22 +2,22 @@
 {%load static%}
 
 {% block TituloPagina %}
-Hoteles - Viajes Coder    
+Excursiones - Viajes Coder    
 {% endblock %}
 
 {% block ImagenPortada %}
-    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'imagenes/hoteles.jpg'%}" alt="..." /></div>
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'imagenes/excursiones.jpg'%}" alt="..." /></div>
 {% endblock %}
 
 
-{% block TipoDePagina %}Hoteles{% endblock %}
-{% block SloganPagina %}Elegí el mejor hotel para tu próxima aventura{% endblock %}
+{% block TipoDePagina %}Excursiones{% endblock %}
+{% block SloganPagina %}Elegí las mejores excursiones para disfrutar{% endblock %}
 {% block DeBusqueda %}
-<a class="btn btn-primary" href="{%url 'buscar_ubicacion_hotel'  %}">Buscar Hotel</a>
-<a class="btn btn-primary" href="{%url 'crear_hotel'  %}">Crear nuevo Hotel</a>
+<a class="btn btn-primary" href="{%url 'buscar_nombre_excursion'  %}">Buscar Excursion</a>
+<a class="btn btn-primary" href="{%url 'crear_excursion'  %}">Crear Nueva Excursion</a> 
    
 {% endblock %}</a>
-{%block SeparadorPagina %}<h1 class="font-weight-light">Escapate al hotel {{hotel.nombre}}</h1>{% endblock %}
+{%block SeparadorPagina %}<h1 class="font-weight-light">Excursion en {{excursion.nombre}}</h1>{% endblock %}
 {%block ContenidoPagina%}
 
 <form action="" method = "post">
@@ -25,7 +25,7 @@ Hoteles - Viajes Coder
     {{form.as_p}}
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{{hotel.imagen}}" alt="..." /></div>
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{{excursion.imagen}}" alt="..." /></div>
             <div class="col-lg-5">
                 <table class="table">
                     <thead>
@@ -39,9 +39,9 @@ Hoteles - Viajes Coder
                     <tbody>
                         <tr>
                           <th scope="row">-</th>
-                          <td>{{hotel.nombre}}</td>
-                          <td>{{hotel.ubicacion}}</td>
-                          <td>$<b>{{hotel.precio}}</b></td>
+                          <td>{{excursion.nombre}}</td>
+                          <td>{{excursion.ubicacion}}</td>
+                          <td>$<b>{{excursion.precio}}</b></td>
                         </tr>
                     </tbody>
                   </table>
@@ -49,17 +49,15 @@ Hoteles - Viajes Coder
                     <thead>
                       <tr>
                         <th scope="col"></th>
-                        <th scope="col">DESDE EL</th>
-                        <th scope="col">HASTA EL</th>
+                        <th scope="col">DURACION</th>
                         <th scope="col">DESCRIPCION</th>
                       </tr>
                     </thead>
                     <tbody>
                         <tr>
                           <th scope="row">-</th>
-                          <td>{{hotel.desde}}</td>
-                          <td>{{hotel.hasta}}</td>
-                          <td>{{hotel.descripcion}}</td>
+                          <td>{{excursion.duracion}}hs</td>
+                          <td>{{excursion.descripcion}}</td>
                         </tr>
                     </tbody>
                 </table>
