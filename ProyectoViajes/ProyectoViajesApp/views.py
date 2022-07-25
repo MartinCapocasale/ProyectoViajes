@@ -117,13 +117,11 @@ def vuelos(request):
 
 def hoteles(request):
     hoteles = Hotel.objects.all()
-    aplicar_avatar(request)
     return render(request,"ProyectoViajesApp/hoteles.html",{"hoteles":hoteles})
 
 
 def excursiones(request):
     excursiones = Excursion.objects.all()
-    aplicar_avatar(request)
     return render(request,"ProyectoViajesApp/excursiones.html",{"excursiones":excursiones})
 
 @login_required 
@@ -337,11 +335,3 @@ def buscar_nombre_excursion(request):
         excursiones = []
         return render(request,"ProyectoViajesApp/buscar_nombre_excursion.html",{"excursiones":excursiones})
 
-def aplicar_avatar(request):
-    if request.user.is_authenticated:
-        try:
-            avatar = Avatar.objects.get(usuario=request.user)
-            url = avatar.imagen.url
-        except:
-            url = "/media/avatar/perfil_default.png"   
-        return render(request,"ProyectoViajesApp/index.html",{"excursiones":excursiones,"vuelos":vuelos,"hoteles":hoteles,"url":url})

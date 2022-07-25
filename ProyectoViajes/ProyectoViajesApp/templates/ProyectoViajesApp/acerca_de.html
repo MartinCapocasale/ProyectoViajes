@@ -15,31 +15,21 @@ Creemos que viajar nos transforma, porque nos permite encontrar la mejor versió
 Por eso, ofrecemos el mejor servicio de atención personalizada para acompañarte ANTES, DURANTE y DESPUÉS de tu viaje
 {% endblock %}
 {% block DeBusqueda %}
-  
+Unimos lo mejor de dos mundos: tecnología y personas. Para que vivas un viaje soñado. Innovamos para democratizar los viajes, porque creemos que todos merecemos tener la mejor experiencia.
 {% endblock %}</a>
 {%block SeparadorPagina %}Somos líderes en atención{% endblock %}
 {%block ContenidoPagina%}
-    <!-- Content Row-->
-    <div class="container">
-        <div class="row">
-            {%for vuelo in vuelos%}
-                <div class="col-sm-4 mb-3">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{vuelo.imagen}}" alt="..." />
-                        <div class="card-body">
-                            <h5 class="card-title">Vuelo a <h5><b>{{vuelo.destino}}</b></h5>
-                            <p class="card-text">Saliendo desde: {{vuelo.origen}}</p>
-                            <p class="card-text">Precio Ida y Vuelta: $<b>{{vuelo.precio}}</b></p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a>
-                            <td>
-                                <a href="{% url 'editar_vuelo' vuelo.id %}" class="btn btn-primary btn-sm"> Editar</a>
-                                <a href="{% url 'eliminar_vuelo' vuelo.id %}" class="btn btn-primary btn-sm"> Eliminar</a>
-                            </td>
-                        </div>
-                    </div>
+<section class="bg-dark py-5" style="background: url(https://wallpaperboat.com/wp-content/uploads/2019/05/cancun-mexico-1.jpg) no-repeat center center / cover;">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center my-5">
+                    <h1 class="display-5 fw-bolder text-white mb-2">Tu lugar de destino en un solo lugar</h1>
+                    <p class="lead fw-bolder text-white mb-4">Organizá cada etapa de tu viaje desde nuestra web o nuestra app, plataformas seguras, intuitivas y fáciles de usar.</p>
                 </div>
-            {% endfor %}
-        </div> 
-    </div>   
+            </div>
+        </div>
+    </div>
+</section>
+<br>
 {%endblock%}

@@ -17,8 +17,8 @@ class Vuelo(models.Model):
     id_vuelo = models.IntegerField()
     origen = models.CharField(max_length=30)
     destino = models.CharField(max_length=30)
-    ida = models.DateTimeField()
-    vuelta = models.DateTimeField()
+    ida = models.DateField()
+    vuelta = models.DateField()
     precio = models.DecimalField(max_digits=8,decimal_places=0)
     imagen = models.URLField(blank=True,null=True)
 
@@ -27,8 +27,8 @@ class Hotel(models.Model):
     nombre = models.CharField(max_length=30)
     ubicacion = models.CharField(max_length=60)
     descripcion = models.CharField(max_length=150)
-    desde = models.DateTimeField()
-    hasta = models.DateTimeField()
+    desde = models.DateField()
+    hasta = models.DateField()
     precio = models.DecimalField(max_digits=8,decimal_places=0)
     imagen = models.URLField(blank=True,null=True)
 
