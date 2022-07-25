@@ -28,7 +28,7 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'hoteles'%}">Hoteles</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'excursiones'%}">Excursiones</a></li>
                         
-                        {%if user.is_authenticated%}
+                        {%if user.is_authenticated%} 
                             {% if user.avatar.imagen.url %}
                                 <img class="rounded" src="{{ user.avatar.imagen.url }}" alt="" srcset="" style="height: 40px;">
                             {% else %}
