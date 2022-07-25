@@ -1,0 +1,71 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Hoteles - Viajes Coder    
+{% endblock %}
+
+{% block ImagenPortada %}
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'imagenes/hoteles.jpg'%}" alt="..." /></div>
+{% endblock %}
+
+
+{% block TipoDePagina %}Hoteles{% endblock %}
+{% block SloganPagina %}Elegí el mejor hotel para tu próxima aventura{% endblock %}
+{% block DeBusqueda %}
+<a class="btn btn-primary" href="{%url 'buscar_ubicacion_hotel'  %}">Buscar Hotel</a>
+<a class="btn btn-primary" href="{%url 'crear_hotel'  %}">Crear nuevo Hotel</a>
+   
+{% endblock %}</a>
+{%block SeparadorPagina %}<h1 class="font-weight-light">Escapate al hotel {{hotel.nombre}}</h1>{% endblock %}
+{%block ContenidoPagina%}
+
+<form action="" method = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{{hotel.imagen}}" alt="..." /></div>
+            <div class="col-lg-5">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">UBICACION</th>
+                        <th scope="col">PRECIO</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <th scope="row">-</th>
+                          <td>{{hotel.nombre}}</td>
+                          <td>{{hotel.ubicacion}}</td>
+                          <td><b>{{hotel.precio}}$</b></td>
+                        </tr>
+                    </tbody>
+                  </table>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">DESDE EL</th>
+                        <th scope="col">HASTA EL</th>
+                        <th scope="col">DESCRIPCION</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <th scope="row">-</th>
+                          <td>{{hotel.desde}}</td>
+                          <td>{{hotel.hasta}}</td>
+                          <td>{{hotel.descripcion}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> 
+    </div>
+</form>
+
+{%endblock%}

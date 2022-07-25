@@ -29,7 +29,7 @@ Hoteles - Viajes Coder
                             <p class="card-text">{{hotel.nombre}} Hotel</p>
                             <p class="card-text">Precio por noche: $<b>{{hotel.precio}}</b></p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Mas informacion</a>
+                        <div class="card-footer"><a href="{% url 'mas_info_hotel' hotel.id %}" class="btn btn-primary btn-sm">Mas informacion</a>
                             <td>
                                 <a href="{% url 'editar_hotel' hotel.id %}" class="btn btn-primary btn-sm"> Editar</a>
                                 <a href="{% url 'eliminar_hotel' hotel.id %}" class="btn btn-primary btn-sm"> Eliminar</a>

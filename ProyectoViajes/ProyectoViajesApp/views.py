@@ -119,10 +119,13 @@ def hoteles(request):
     hoteles = Hotel.objects.all()
     return render(request,"ProyectoViajesApp/hoteles.html",{"hoteles":hoteles})
 
-
 def excursiones(request):
     excursiones = Excursion.objects.all()
     return render(request,"ProyectoViajesApp/excursiones.html",{"excursiones":excursiones})
+
+def mas_info_hotel(request,hotel_id):
+    hotel = Hotel.objects.get(id=hotel_id)
+    return render(request,"ProyectoViajesApp/mas_info_hotel.html",{"hotel":hotel})
 
 @login_required 
 def crear_hotel(request):
