@@ -94,6 +94,7 @@ def agregar_avatar(request):
     
     if request.method == "POST":
         form = AvatarForm(request.POST, request.FILES)
+        
         if form.is_valid():
             user = User.objects.get(username=request.user.username)
             avatar = Avatar(usuario=user, imagen=form.cleaned_data["imagen"])
