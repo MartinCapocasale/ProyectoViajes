@@ -29,13 +29,16 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'excursiones'%}">Excursiones</a></li>
                         
                         {%if user.is_authenticated%}
-                            <img class="rounded" src="{{url}}" alt="" srcset="" style="height: 40px">  
-                            <!--<i class="bi bi-person-bounding-box text-light"></i>-->
+                            {% if user.avatar.imagen.url %}
+                                <img class="rounded" src="{{ user.avatar.imagen.url }}" alt="" srcset="" style="height: 40px;">
+                            {% else %}
+                                <i class="bi bi-person-circle text-light my-2"></i>
+                            {% endif %}
                             <li class="nav-item"><p class="text-light my-2 mx-2">  Hola, <b>{{user.username}}</b>!</p></li>
                             <li class="nav-item"><a class="btn btn-primary" href="{% url 'logout'%}">Cerrar Sesión</a></li>
                         {% else %}
                             <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'login'%}">Iniciar Sesión</a></li>
-                            <li class="nav-item"><a class="btn btn-outline-primary" href="{% url 'register'%}">registrarse</a></li>
+                            <li class="nav-item"><a class="btn btn-outline-primary" href="{% url 'register'%}">Registrarse</a></li>
                         {% endif %}
                     </ul>
                 </div>

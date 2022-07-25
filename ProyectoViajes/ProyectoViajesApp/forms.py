@@ -61,7 +61,7 @@ class UserEditForm(UserCreationForm):
         #help_texts = {k:"" for k in fields}
 
 class AvatarForm(forms.Form):
-    imagen = forms.ImageField(label="Imagen")
+    imagen = forms.ImageField(label="Imagen", required=False)
 
     class Meta:
         model = Avatar
