@@ -9,6 +9,8 @@ Proyecto web de viajes con Python y Django
 
 -Bootstrap = 5.1.3 
 
+-Pillow = 9.2.0
+
 El proyecto consiste en una web de viajes, teniendo inicialmente 3 modelos Vuelo, Hotel y Excursion, cada uno con su vista esto sumado a las 
 vistas de formulario para la insercion y las de busqueda para podder realizar una busqueda en cada uno de los modelos.
 Se agrega una base.html para aplicar herencia a los demas archivos .html, tambien se crea una carpeta raiz de imagenes para obtener imagenes de portadas
@@ -34,3 +36,4 @@ ingresar al localhost y el puerto correspondiente para visualizar el proyecto co
 
 Se crean objetos desde el panel de administracion para probar su funcionalidad y se agrega a cada modelo su nombre correspondiente y un campo de busqueda.
 
+Se agregan vistas de perfiles de usuario, se agrega modulo de login,logout y registro para estos, solo usuarios con privilegios pueden acceder a crear y ver la edicion de su perfil y su avatar
