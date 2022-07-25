@@ -11,7 +11,6 @@ class Avatar(models.Model):
 class Acerca_de(models.Model):
     nombre = models.CharField(max_length=30)
 
-
 class Vuelo(models.Model):
 
     id_vuelo = models.IntegerField()

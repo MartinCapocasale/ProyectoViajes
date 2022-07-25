@@ -29,7 +29,8 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'excursiones'%}">Excursiones</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'acerca_de'%}">Acerca De</a></li>
                         
-                        {%if user.is_authenticated%} 
+                        {%if user.is_authenticated%}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'editar_perfil'%}">Perfil</a></li> 
                             {% if user.avatar.imagen.url %}
                                 <img class="rounded" src="{{ user.avatar.imagen.url }}" alt="" srcset="" style="height: 40px;">
                             {% else %}
