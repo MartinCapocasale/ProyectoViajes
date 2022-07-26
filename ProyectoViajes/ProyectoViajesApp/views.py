@@ -6,6 +6,7 @@ from .forms import *
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login,logout, authenticate 
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 def inicio(request):
@@ -67,7 +68,13 @@ def register_request(request):
 def logout_request(request):
     logout(request)
     return redirect("inicio")
+
     
+class AddCommentView(CreateView):
+    model = Comentario
+    template_name = "ProyectoViajesApp/agregar_comentario.html"
+    fields = '__all__'
+    success_url = "/excursiones/"
 
 @login_required    
 def editar_perfil(request):

@@ -9,6 +9,7 @@ urlpatterns = [
     path('editar_perfil',editar_perfil, name="editar_perfil"),
     path('ver_perfil',ver_perfil, name="ver_perfil"),
     path ('agregar_avatar',agregar_avatar,name="agregar_avatar"),
+    path ('mas_info_excursion/<excursion_id>/comment/',AddCommentView.as_view(),name="agregar_comentario"),
     #path('base/', base),
 
     path('acerca_de/',acerca_de,name="acerca_de"),

@@ -20,3 +20,4 @@ admin.site.register(Hotel, HotelAdmin)
 admin.site.register(Excursion, ExcursionAdmin)
 
 admin.site.register(Avatar)
+admin.site.register(Comentario)

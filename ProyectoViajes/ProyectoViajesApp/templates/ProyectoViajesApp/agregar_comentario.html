@@ -1,0 +1,29 @@
+{% extends 'ProyectoViajesApp/base.html' %}
+{%load static%}
+
+{% block TituloPagina %}
+Agregar Comentario - Viajes Coder    
+{% endblock %}
+{% block ImagenPortada %}
+    <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'imagenes/inicio.jpeg'%}" alt="..." /></div>
+{% endblock %}
+{% block TipoDePagina %}Agregar un Comentario{% endblock %}
+{% block SloganPagina %}{% endblock %}
+{% block DeBusqueda %}
+
+{% endblock %}</a>
+
+{%block SeparadorPagina %}Agrega tu comentario{% endblock %}
+
+{%block ContenidoPagina%}
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <h1>Comentario</h1>
+        <form action="" method="post"enctype="Multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Agregar</button>
+        </form>
+    </div>
+</section>    
+{%endblock%}

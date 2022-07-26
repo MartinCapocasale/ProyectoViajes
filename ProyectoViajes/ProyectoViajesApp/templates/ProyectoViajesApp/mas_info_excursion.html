@@ -64,6 +64,30 @@ Excursiones - Viajes Coder
             </div>
         </div> 
     </div>
+    <article class="container-flud mt-5 text-center">
+      <br/><br/>
+      <hr>
+      <h5><b>Comentarios sobre la excursion: {{excursion.nombre}}</b></h5>
+      <br/>
+      {%if not excursion.comments.all %}
+        No hay comentarios aun... <a href="#">
+        +Agrega un Comentario</a>
+      {%else%}
+      <a href="{%url 'agregar_comentario' excursion.id%}">+Agrega un Comentario</a>
+      <br/><br/>
+        {%for comment in excursion.comments.all %}
+          <strong>
+            {{comment.autor}} -
+            {{comment.fecha}}
+          </strong>
+        <br/>
+        {{comment.body}}
+        <br/><br/>
+        <hr>
+        {%endfor%}
+      {%endif%}
+      <hr>
+    </article>  
 </form>
 
 {%endblock%}
