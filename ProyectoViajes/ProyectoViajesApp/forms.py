@@ -49,7 +49,6 @@ class UserRegisterForm(UserCreationForm):
 class UserEditForm(UserCreationForm):
 
     #foto = forms.ImageField(required=False)
-    username = forms.CharField(label="Username:")
     email = forms.EmailField(label="Email:")
     password1: forms.CharField(label="Contraseña:",widget=forms.PasswordInput)
     password2: forms.CharField(label="Confirmar Contraseña:",widget=forms.PasswordInput)
@@ -58,7 +57,7 @@ class UserEditForm(UserCreationForm):
     
     class Meta:
         model = User
-        fields = ['username','email','password1','password2','first_name','last_name']
+        fields = ['email','password1','password2','first_name','last_name']
         #help_texts = {k:"" for k in fields}
 
 class AvatarForm(forms.Form):
