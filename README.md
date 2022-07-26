@@ -37,3 +37,6 @@ ingresar al localhost y el puerto correspondiente para visualizar el proyecto co
 Se crean objetos desde el panel de administracion para probar su funcionalidad y se agrega a cada modelo su nombre correspondiente y un campo de busqueda.
 
 Se agregan vistas de perfiles de usuario, se agrega modulo de login,logout y registro para estos, solo usuarios con privilegios pueden acceder a crear y ver la edicion de su perfil y su avatar
+
+se agregan los mensajes y comentarios en las excursiones
+    -se utilizan cvb para la implementacion en la vista de AddCommentView
