@@ -40,3 +40,4 @@ Se agregan vistas de perfiles de usuario, se agrega modulo de login,logout y reg
 
 se agregan los mensajes y comentarios en las excursiones
     -se utilizan cvb para la implementacion en la vista de AddCommentView
+    -se utiliza mixin para comentar solo estando autenticado
